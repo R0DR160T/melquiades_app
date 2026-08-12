@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad — Melquíades</title>
+<style>
+  :root {
+    --indigo: #35507A;
+    --texto: #1C1C1E;
+    --texto-sec: #6E6E73;
+    --superficie: #FAFAF9;
+    --borde: #E4E4E1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --texto: #F2F2F2;
+      --texto-sec: #9A9A9E;
+      --superficie: #1C1C1E;
+      --borde: #333335;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--superficie);
+    color: var(--texto);
+    font-family: -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  h1 {
+    font-family: -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    margin: 0 0 4px;
+  }
+  .fecha {
+    color: var(--texto-sec);
+    font-size: 14px;
+    margin: 0 0 40px;
+  }
+  h2 {
+    font-family: -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    margin: 40px 0 12px;
+    border-top: 0.5px solid var(--borde);
+    padding-top: 32px;
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  p { margin: 0 0 16px; }
+  ul, ol { margin: 0 0 16px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--indigo); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 8px;
+    border-bottom: 0.5px solid var(--borde);
+    vertical-align: top;
+  }
+  th { color: var(--texto-sec); font-weight: 600; }
+  strong { font-weight: 600; }
+  .resumen {
+    background: color-mix(in srgb, var(--indigo) 8%, transparent);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 8px;
+  }
+  code {
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 0.92em;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Política de privacidad de Melquíades</h1>
+  <p class="fecha">Última actualización: 12 de agosto de 2026</p>
+
+  <p>Melquíades es una app de seguimiento de proyectos y archivos para iOS y macOS, desarrollada por Rodrigo Torres González. Esta política explica, en términos simples, qué pasa con tu información al usarla.</p>
+
+  <h2>Resumen</h2>
+  <p class="resumen">Melquíades no tiene servidor propio. No recolectamos, almacenamos ni vemos tus datos en ningún momento — todo vive en tu propia cuenta de iCloud y en el Llavero (Keychain) de tu dispositivo. El desarrollador no tiene acceso a tu información bajo ninguna circunstancia.</p>
+
+  <h2>Qué información maneja la app y dónde vive</h2>
+  <table>
+    <tr><th>Información</th><th>Dónde se guarda</th><th>Quién tiene acceso</th></tr>
+    <tr><td>Nombre de pila, acento de color</td><td>Un solo archivo Markdown en tu iCloud Drive</td><td>Solo tú, vía tu cuenta de iCloud</td></tr>
+    <tr><td>Proyectos, responsables, fechas, entregables, notas</td><td>El mismo archivo Markdown en tu iCloud Drive</td><td>Solo tú</td></tr>
+    <tr><td>Bitácoras de proyectos continuos</td><td>El mismo archivo Markdown en tu iCloud Drive</td><td>Solo tú</td></tr>
+    <tr><td>Notas de reunión (procesadas o no)</td><td>El mismo archivo Markdown en tu iCloud Drive</td><td>Solo tú</td></tr>
+    <tr><td>API key de OpenAI (opcional)</td><td>Llavero (Keychain) cifrado del dispositivo — nunca en el archivo Markdown ni en texto plano</td><td>Solo tú; se sincroniza entre tus dispositivos solo si tienes activado el Llavero de iCloud</td></tr>
+  </table>
+  <p>Ese archivo Markdown y el Llavero están dentro de tu propia cuenta de Apple (iCloud), sujetos a la <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">política de privacidad de Apple</a>. El desarrollador de Melquíades no tiene acceso a tu contenedor de iCloud ni a tu Llavero.</p>
+
+  <h2>Uso opcional de la API de OpenAI</h2>
+  <p>La función "Procesar nota" es completamente opcional — la app funciona por completo sin ella, agregando y editando notas y tareas a mano. Solo se activa si tú:</p>
+  <ol>
+    <li>Agregas tu propia API key de OpenAI en Ajustes, <strong>y</strong></li>
+    <li>Presionas el botón "Procesar nota" sobre una nota específica</li>
+  </ol>
+  <p>Cuando lo haces, se envían directamente desde tu dispositivo a los servidores de OpenAI, usando tu propia API key:</p>
+  <ul>
+    <li>El texto de esa nota</li>
+    <li>Los <strong>nombres</strong> (nada más — no fechas, responsables, enlaces ni notas) de tus proyectos existentes, para que la IA pueda sugerir con cuáles se relaciona</li>
+  </ul>
+  <p>Ninguna otra información sale de tu dispositivo en esta llamada, y no se realiza ninguna otra llamada a OpenAI en ningún otro punto de la app. Esta petición va directo de tu dispositivo a OpenAI — el desarrollador de Melquíades nunca ve, recibe ni almacena el contenido de tus notas ni las respuestas de la IA. El uso de esa información por parte de OpenAI se rige por la <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">política de privacidad de OpenAI</a>.</p>
+  <p>Ninguna sugerencia de la IA (tareas extraídas, relaciones con otros proyectos) se guarda automáticamente — siempre revisas y confirmas antes de que algo se agregue a tu lista o bitácora.</p>
+
+  <h2>Notificaciones</h2>
+  <p>El resumen diario (pendientes/atrasados) se calcula por completo en tu dispositivo, a partir de tu propio archivo, y se entrega como una notificación local del sistema. No se envía a ningún servidor.</p>
+
+  <h2>Lo que Melquíades no hace</h2>
+  <ul>
+    <li>No tiene cuentas de usuario ni registro</li>
+    <li>No tiene servidor propio ni base de datos propia</li>
+    <li>No usa analítica, rastreo de comportamiento ni publicidad</li>
+    <li>No vende ni comparte tu información con nadie, porque el desarrollador nunca la tiene</li>
+    <li>No usa cookies ni identificadores de rastreo entre apps</li>
+  </ul>
+
+  <h2>Eliminar tu información</h2>
+  <p>Como toda tu información vive en tu iCloud Drive y tu Llavero, la controlas por completo tú:</p>
+  <ul>
+    <li>Borra o edita el archivo Markdown desde la app de Archivos, Melquíades, o cualquier editor de texto compatible con iCloud</li>
+    <li>Elimina la API key desde Ajustes dentro de la app, o borrando la app (lo cual también elimina la entrada del Llavero)</li>
+  </ul>
+  <p>No existe una copia adicional en ningún otro lugar que borrar, porque nunca salió de tu cuenta de Apple (salvo la excepción puntual y explícita de "Procesar nota" descrita arriba).</p>
+
+  <h2>Menores de edad</h2>
+  <p>Melquíades no está dirigida a menores de 13 años y no recolecta información de nadie, independientemente de su edad.</p>
+
+  <h2>Cambios a esta política</h2>
+  <p>Si esta política cambia, se actualizará la fecha al inicio de este documento y la nueva versión estará disponible en la misma dirección publicada en la ficha de la app.</p>
+
+  <h2>Contacto</h2>
+  <p>Preguntas sobre esta política: <a href="mailto:rodr160.t@gmail.com">rodr160.t@gmail.com</a></p>
+</main>
+</body>
+</html>
